@@ -1,3 +1,5 @@
+nf-core-snptree.iml
+.idea/
 .nextflow*
 work/
 data/

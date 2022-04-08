@@ -18,20 +18,25 @@
 
 <!-- TODO nf-core: Write a 1-2 sentence summary of what data the pipeline is for and what it does -->
 
-**nf-core/snptree** is a bioinformatics best-practice analysis pipeline for A Nextflow workflow that generates a core genome alignment, calls SNPs, and makes a tree based on bacterial genome assemblies..
+**nf-core/snptree** is a bioinformatics best-practice analysis pipeline to generate a core genome alignment, call SNPs, and make a tree based on bacterial genome assemblies.
 
-The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible. The [Nextflow DSL2](https://www.nextflow.io/docs/latest/dsl2.html) implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from [nf-core/modules](https://github.com/nf-core/modules) in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!
+The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner.
+
+[//]: # (It uses Docker/Singularity containers making installation trivial and results highly reproducible. The [Nextflow DSL2]&#40;https://www.nextflow.io/docs/latest/dsl2.html&#41; implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from [nf-core/modules]&#40;https://github.com/nf-core/modules&#41; in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!)
 
 <!-- TODO nf-core: Add full-sized test dataset and amend the paragraph below if applicable -->
 
-On release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure. This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world datasets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources. The results obtained from the full-sized test can be viewed on the [nf-core website](https://nf-co.re/snptree/results).
+[//]: # (On release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure. This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world datasets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources. The results obtained from the full-sized test can be viewed on the [nf-core website]&#40;https://nf-co.re/snptree/results&#41;.)
 
 ## Pipeline summary
 
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
-1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+1. Core genome alignment
+2. SNP calling
+3. Phylogenetic tree building
+4. (Optional) estimate SNPs due to recombination
+5. (Optional) re-build phylogenetic tree without SNPs due to recombination
 
 ## Quick Start
 
@@ -66,31 +71,43 @@ The nf-core/snptree pipeline comes with documentation about the pipeline [usage]
 
 ## Credits
 
-nf-core/snptree was originally written by Sarah Nadeau.
+nf-core/snptree is based on the [wf-assembly-snps](https://github.com/chrisgulvik/wf-assembly-snps) pipeline and was originally written by Sarah Nadeau.
 
-We thank the following people for their extensive assistance in the development of this pipeline:
+[//]: # (We thank the following people for their extensive assistance in the development of this pipeline:)
 
 <!-- TODO nf-core: If applicable, make list of people who have also contributed -->
 
-## Contributions and Support
+[//]: # (## Contributions and Support)
 
-If you would like to contribute to this pipeline, please see the [contributing guidelines](.github/CONTRIBUTING.md).
+[//]: # ()
+[//]: # (If you would like to contribute to this pipeline, please see the [contributing guidelines]&#40;.github/CONTRIBUTING.md&#41;.)
 
-For further information or help, don't hesitate to get in touch on the [Slack `#snptree` channel](https://nfcore.slack.com/channels/snptree) (you can join with [this invite](https://nf-co.re/join/slack)).
+[//]: # ()
+[//]: # (For further information or help, don't hesitate to get in touch on the [Slack `#snptree` channel]&#40;https://nfcore.slack.com/channels/snptree&#41; &#40;you can join with [this invite]&#40;https://nf-co.re/join/slack&#41;&#41;.)
 
-## Citations
+[//]: # (## Citations)
 
-<!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->
-<!-- If you use  nf-core/snptree for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
+[//]: # ()
+[//]: # (<!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->)
 
-<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
+[//]: # (<!-- If you use  nf-core/snptree for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX]&#40;https://doi.org/10.5281/zenodo.XXXXXX&#41; -->)
 
-An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
+[//]: # ()
+[//]: # (<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->)
 
-You can cite the `nf-core` publication as follows:
+[//]: # ()
+[//]: # (An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`]&#40;CITATIONS.md&#41; file.)
 
-> **The nf-core framework for community-curated bioinformatics pipelines.**
->
-> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
->
-> _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
+[//]: # ()
+[//]: # (You can cite the `nf-core` publication as follows:)
+
+[//]: # ()
+[//]: # (> **The nf-core framework for community-curated bioinformatics pipelines.**)
+
+[//]: # (>)
+
+[//]: # (> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.)
+
+[//]: # (>)
+
+[//]: # (> _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x]&#40;https://dx.doi.org/10.1038/s41587-020-0439-x&#41;.)
